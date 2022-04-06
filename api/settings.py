@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-wb84)x_nt81bitc3uo4g@gm^n+eg_k6e#z^1v9!17k540@zr=o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'mapapidos.herokuapp.com', 'mapapidos.carcrash.monster']  
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'mapapidos.herokuapp.com', 'mapapidos.carcrash.monster'] 
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -39,18 +41,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'map.apps.MapConfig',
     'rest_framework',
+    'corsheaders',
     'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'api.urls'
